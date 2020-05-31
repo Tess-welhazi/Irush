@@ -1,0 +1,79 @@
+.profile_head{
+  background-color: #75bcff;
+  background-image: url("https://picsum.photos/200/300/?blur=2");
+  background-position: center;
+  width: 100%;
+  background-size: cover;
+  min-height: 250px;
+
+}
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.rounded{
+background-image: url("/storage/img/lady_profile.jpg") ;
+background-position: center;
+background-clip: border-box;
+background-size: cover;
+height: 100px;
+width:100px;
+}
+
+h2{
+  font-weight: 600;
+  line-height: 0.5;
+  color: white;
+}
+p{
+  color: white;
+}
+
+.container{
+  background-color: '#f8f8f8';
+}
+
+.tabs{
+  background-color: white;
+  padding-right: 0px;
+  padding-left: 0px;
+  text-align: center;
+}
+
+.blurry{
+  -webkit-box-shadow: 0 0 3px #ddd;
+  -moz-box-shadow: 0 0 3px #ddd;
+  /* box-shadow: 3px 5px 4px 1px rgba(227,227,227,1); */
+  box-shadow: 0 0 3px #ddd;
+}
+
+.pads{
+  height: 3rem;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.pads a{
+  padding: 0.7rem;
+  color: black;
+  font-weight: bold;
+}
+
+.pads a:hover {
+    text-decoration: none;
+    border-bottom: 3px solid #227dc7;
+    color: #227dc7;
+}
+
+.active a{
+  text-decoration: none;
+  border-bottom: 3px solid #227dc7;
+  color: #227dc7;
+}

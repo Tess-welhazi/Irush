@@ -1,0 +1,52 @@
+.bg{
+  /* The image used */
+background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
+
+/* Half height */
+height: 100vh;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+display: flex;
+align-self: center;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+flex: 1;
+/* some pads */
+padding-bottom: 5%;
+margin-bottom: 3%;
+}
+
+.searcher{
+  width: 50%;
+
+}
+/* for the search bar */
+
+.input-group.md-form.form-sm.form-1 input{
+  border: 1px solid #bdbdbd;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input {
+  border: 1px solid #bdbdbd;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input.red-border {
+  border: 1px solid #ef9a9a;
+}
+.input-group.md-form.form-sm.form-2 input.lime-border {
+  border: 1px solid #cddc39;
+}
+.input-group.md-form.form-sm.form-2 input.amber-border {
+  border: 1px solid #ffca28;
+}
+
+.categories_btn{
+  margin-left: 2%;
+
+}
