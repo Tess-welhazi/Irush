@@ -12,21 +12,22 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+      $now = Carbon::now()->toDateTimeString();
       $category = [
         [
-           'name'=>'food',
+           'name'=>'food', 'slug'=>'food',
         ],
         [
-           'name'=>'animals',
+           'name'=>'animals', 'slug'=>'animals',
         ],
         [
-          'name'=>'people'
+          'name'=>'people', 'slug'=>'people',
         ],
         [
-          'name'=>'urban'
+          'name'=>'urban', 'slug'=>'urban',
         ],
         [
-          'name'=>'nature'
+          'name'=>'nature', 'slug'=>'nature',
         ]
 
       ];

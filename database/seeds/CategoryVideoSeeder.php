@@ -13,6 +13,8 @@ class CategoryVideoSeeder extends Seeder
      */
     public function run()
     {
+      $now = Carbon::now()->toDateTimeString();
+
       $videos = Video::all();
       $categories = Category::all();
 
@@ -21,6 +23,9 @@ class CategoryVideoSeeder extends Seeder
         $v->categories()->attach(
           $categories->random(rand(1,5))->pluck('id')->toArray()
         );
+
+
       });
+      
     }
 }

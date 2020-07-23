@@ -12,7 +12,7 @@ class SearchController extends Controller
       public function basic_search(Request $request, Video $video)
       {
         $q = Request::input  ( 'q' );
-        $video = Video::where('name','LIKE','%'.$q.'%')->orWhere('description','LIKE','%'.$q.'%')->get();
+        $video = Video::where('name','LIKE','%'.$q.'%')->orWhere('description','LIKE','%'.$q.'%')->paginate(15);
         if(count($video) > 0)
             return view('search')->withDetails($video)->withQuery ( $q );
         else return view ('search')->withMessage('No Details found. Try to search again !');

@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+use App\Favorite;
+use Auth;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,4 +22,12 @@ class Video extends Model
   {
       return $this->belongsToMany('App\Category')->withTimeStamps();;
   }
+
+  public function favorited()
+  {
+      return (bool) Favorite::where('user_id', Auth::id())
+                          ->where('video_id', $this->id)
+                          ->first();
+  }
+
 }

@@ -172,4 +172,18 @@ class VideoController extends Controller
         return back();
     }
 
+    public function favorited()
+    {
+        return (bool) Favorite::where('user_id', Auth::id())
+                            ->where('video_id', $this->id)
+                            ->first();
+    }
+
+    public function myFavorites()
+    {
+        $myFavorites = Auth::user()->favorites;
+
+        return view('users.my_favorites', compact('myFavorites'));
+    }
+
 }

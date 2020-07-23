@@ -11,7 +11,7 @@
           <form action="/search" method="POST" role="search" class="searcher input-group md-form form-sm form-2 pl-0">
               {{ csrf_field() }}
               <div class="input-group">
-                  <input type="text" class="form-control my-0 py-1 lime-border" name="q" aria-label="Search" placeholder="Search users">
+                  <input type="text" value="{{request()->$query}}" class="form-control my-0 py-1 lime-border" name="q" aria-label="Search" placeholder="Search users">
                    <span class="input-group-btn lime lighten-2">
                       <button type="submit" class="btn btn-default">
                           <span class="fas fa-search text-grey"></span>
@@ -88,7 +88,7 @@
                     <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" checked>
                     <label for="customRadio2" class="custom-control-label">Custom Radio </label>
                   </div>
-                
+
                 </div>
               </div>
               <button type="button" name="button" class="btn btn-primary" >search</button>
@@ -97,21 +97,14 @@
     </div>
 
     <!-- regular result -->
-
     @if(isset($details))
-        <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-    <h2>Sample User details</h2>
-    <table class="table table-striped">
+        <p style="color: black">{{$details->count()}} search result(s) for "<b> {{ $query }} </b>"</p>
 
-        <tbody>
-            @foreach($details as $video)
-            <!-- <tr>
-                <td>{{$video->name}}</td>
-                <td>{{$video->description}}</td>
-            </tr> -->
+    @foreach($details->chunk(3) as $chunk)
+        <div class="card-deck row-fluid">
+            @foreach($chunk as $video)
 
             <div class="card col-md-4" style="width: 20rem;">
-
               <picture>
                 <a href="#" class="icon" title="Play circle">
                   <i class="fa fa-play-circle"></i>
@@ -127,8 +120,13 @@
 
 
             @endforeach
-        </tbody>
-    </table>
+        </div>
+
+        @endforeach
+
+        <div class="pagination">
+          {{ $details->links() }}
+        </div>
     @endif
 
     @if(isset($message))
