@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -10,34 +11,54 @@ Auth::routes();
 
 Route::any('/search','SearchController@basic_search');
 
+Route::any('/advanced_search', 'SearchController@filter')->name('filter');
 
 Route::get('/profile', 'HomeController@profile')->name('profile');
 
-Route::resource('videos', 'VideoController')->only([
-    'index', 'show'
-]);
+Route::resource('videos', 'VideoController')->only(['index', 'show']);
 
-// the favourites
+// ------------------------ CART -------------------
+Route::get('/shop', 'CartController@shop')->name('shop');
 
-Route::post('favorite/{video}', 'VideoController@favoriteVideo');
+Route::get('/cart', 'CartController@cart')->name('cart.index');
+Route::post('/add', 'CartController@add')->name('cart.store');
+Route::post('/update', 'CartController@update')->name('cart.update');
+Route::post('/remove', 'CartController@remove')->name('cart.remove');
+Route::post('/clear', 'CartController@clear')->name('cart.clear');
+
+// original
+// Route::post('/add', 'CartController@add')->name('cart.store');
+
+// ----------------------------------  cart
+
+Route::get('vueAdd/{video}', 'CartController@VueAdd');
+Route::post('vueRemove/{video}', 'CartController@VueRemove');
+
+
+
+
+//---------------------  the favourites  ---------------------------------
+
+Route::get('favorite/{video}', 'VideoController@favoriteVideo');
 Route::post('unfavorite/{video}', 'VideoController@unFavoriteVideo');
 
 Route::get('my_favorites', 'UsersController@myFavorites')->middleware('auth');
+
 
 // middle ware stuff
 
 Route::group(["middleware" => "App\Http\Middleware\IsAdmin"], function()
   {
     Route::match(["get", "post"], "/admin/home", "HomeController@adminHome")->name('admin.home');
+    Route::get('/form', 'VideoController@form')->name('form');
+
 
     Route::resource('videos','VideoController')->except([
         'index', 'show'
     ]);
 
-
     Route::get('/admin/uploadVideo', 'VideoController@index')->name('admin.video');
     Route::get('/videos/download/{id}', 'VideoController@download')->name('downloadFile');
 
-    Route::post('videos/create', 'VideoController@store')->name('video.create');
 
   });

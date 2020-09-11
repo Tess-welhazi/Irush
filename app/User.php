@@ -47,4 +47,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Video::class, 'favorites', 'user_id', 'video_id')->withTimeStamps();
     }
 
+    public function carts()
+    {
+        return $this->belongsToMany(Video::class, 'carts', 'user_id', 'video_id')->withTimeStamps();
+    }
+
 }

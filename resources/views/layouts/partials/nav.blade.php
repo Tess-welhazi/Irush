@@ -13,6 +13,7 @@
 
             </ul>
 
+
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
@@ -36,7 +37,7 @@
                             <a class="dropdown-item" href="{{ route('profile')}}">Profile</a>
 
                             <a class="dropdown-item" href="{{ url('my_favorites') }}">My Favorites</a>
-
+                            
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -56,7 +57,32 @@
                     </li>
 
                 @endguest
+
+<!-- cart here _____________________________________ -->
+
+                <li class="nav-item dropdown" id="cartish2">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Cart
+
+                        <span class="badge badge-pill badge-dark">
+                            <i class="fa fa-shopping-cart"></i> {{ \Cart::getTotalQuantity()}}
+                        </span>
+                    </a>
+<!-- change width here -->
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 250px;">
+                        <a class="dropdown-item" href="">Profile</a>
+
+                        @include('layouts.partials.cart-drop')
+
+
+                    </div>
+
+                </li>
+
+
+  <!-- _____________________________________________ -->
             </ul>
+
 
         </div>
 

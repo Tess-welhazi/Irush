@@ -4977,47 +4977,15 @@ input[type=button].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: transparent !important;
+  background-color: #fff;
   background-clip: border-box;
-  border: 0px rgba(0, 0, 0, 0.125) !important;
-  border-radius: 0rem !important;
-  margin-top: 0.5rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }
 
 .card > hr {
   margin-right: 0;
   margin-left: 0;
-}
-
-.icon {
-  color: white;
-  font-size: 60px;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-  transition: .5s ease;
-}
-
-
-.card > h4 {
-  margin-top: 1rem;
-  font-weight: 600;
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.card > picture > img {
-  border-radius: 6px;
-  opacity: 1;
-  transition: .5s ease;
-
-}
-
-.card > picture:hover > img {
-  opacity: 0.8;
 }
 
 .card > .list-group {
@@ -25199,3 +25167,4 @@ input[type=color].form-control:disabled {
   font-size: 125%;
   vertical-align: text-bottom;
 }
+

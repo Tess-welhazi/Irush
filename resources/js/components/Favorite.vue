@@ -1,56 +1,48 @@
-
 <template>
-    <div class="favoriting">
-        <label
-                class="favorite__heart"
-                v-bind:class="{'favorite__heart__selected': value, 'is-disabled': disabled}"
-                v-on:click="favorite">
-            <input
-                    class="favorite__checkbox"
-                    type="checkbox"
-                    v-bind:name="name"
-                    v-bind:value="value"
-                    v-bind:required="required"
-                    v-bind:disabled="disabled"
-                    v-model="value">
-            ❤
-        </label>
-    </div>
+    <span>
+        <a href="#" v-if="isFavorited" @click.prevent="unFavorite(video)">
+            <i  class="fa fa-heart"></i>
+        </a>
+        <a href="#" v-else @click.prevent="favorite(video)">
+            <i  class="fa fa-heart-o"></i>
+        </a>
+    </span>
 </template>
 
-
 <script>
-export default {
-    props: {
-        'name': {
-            type: String,
-            default: 'favorite'
+    export default {
+        props: ['video', 'favorited'],
+
+        data: function() {
+            return {
+                isFavorited: '',
+            }
         },
-        'value': {
-            type: Boolean,
-            default: false
+
+        mounted() {
+            this.isFavorited = this.isFavorite ? true : false;
+            console.log('mounted');
         },
-        'disabled': {
-            type: Boolean,
-            default: false
+
+        computed: {
+            isFavorite() {
+              console.log('isFavorited()');
+                return this.favorited;
+            },
+        },
+
+        methods: {
+            favorite(video) {
+                axios.get('/favorite/'+video)
+                    .then(response => this.isFavorited = true)
+                    .catch(response => console.log('favorite() error:',response.data));
+            },
+
+            unFavorite(video) {
+                axios.post('/unfavorite/'+video)
+                    .then(response => this.isFavorited = false)
+                    .catch(response => console.log('unfavorite() error:',response.data));
+            }
         }
-    },
-
-    data: function() {
-        return {
-
-        };
-    },
-
-
-    methods: {
-      favorite: function() {
-          if (this.disabled==true) {
-              return;
-          }
-          this.value = !this.value;
-      }
     }
-}
-
 </script>

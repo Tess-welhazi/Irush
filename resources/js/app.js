@@ -7,8 +7,8 @@ import BootstrapVue from 'bootstrap-vue' //Importing
 import Vue from 'vue'
 import {IconsPlugin,DropdownPlugin, TablePlugin } from 'bootstrap-vue'
 
-Vue.use(DropdownPlugin)
-Vue.use(TablePlugin)
+// Vue.use(DropdownPlugin)
+// Vue.use(TablePlugin)
 // Install BootstrapVue
 
 
@@ -19,9 +19,9 @@ window.Vue = require('vue');
 
 Vue.use(BootstrapVue) // Telling Vue to use this in whole application
 // Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
-Vue.use(DropdownPlugin)
-Vue.use(TablePlugin)
+// Vue.use(IconsPlugin)
+// Vue.use(DropdownPlugin)
+// Vue.use(TablePlugin)
 
 /**
  * The following block of code may be used to automatically register your
@@ -35,8 +35,9 @@ Vue.use(TablePlugin)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('favorite', require('./components/Favorite.vue').default);
+Vue.component('cart', require('./components/Cart.vue').default);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

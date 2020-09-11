@@ -45,7 +45,7 @@
 
   <form role="form" action="{{ route('videos.store') }}" method="POST" enctype="multipart/form-data">
 
-      @csrf
+      @csrf()
 
        <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12">
@@ -87,19 +87,31 @@
           </div>
 
           <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" name="categories[]" value="food" id="1">
-              <label class="form-check-label" for="1">food</label>
-              <br>
-              <input type="checkbox" class="form-check-input" name="categories[]" value="animals" id="2">
-              <label class="form-check-label" for="2">animals</label>
-              <br>
-              <input type="checkbox" class="form-check-input" name="categories[]" value="people" id="3">
-              <label class="form-check-label" for="3">people</label>
-              <br>
-              <input type="checkbox" class="form-check-input" name="categories[]" value="urban" id="4">
-              <label class="form-check-label" for="4">urban</label>
-              <br>
+            <div class="form-group">
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="food" id="1">
+                <label class="custom-control-label" for="1">food</label>
+                <br>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="animals" id="2">
+                <label class="custom-control-label" for="2">animals</label>
+                <br>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="people" id="3">
+                <label class="custom-control-label" for="3">people</label>
+                <br>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="urban" id="4">
+                <label class="custom-control-label" for="4">urban</label>
+                <br>
+              </div>
+
 
             </div>
 

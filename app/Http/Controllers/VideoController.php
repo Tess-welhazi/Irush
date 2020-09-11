@@ -19,11 +19,10 @@ class VideoController extends Controller
     }
 
 
-    public function create()
+    public function form()
     {
         return view('videos.create');
     }
-
 
     public function store(Request $request)
     {
@@ -89,33 +88,33 @@ class VideoController extends Controller
 
     public function sortCheckboxes(Request $request, Video $video)
     {
-      if(in_array('food', $request->get('categories'))){
+      if( $request->get('categories')== 'food'){
         $category = Category::find([1]);
-        $video->categories()->syncWithoutDetaching($category);
+        $video->categories()->sync($category);
         }
 
-      if(in_array('animals', $request->get('categories'))){
+      if( $request->get('categories') == 'animals'){
           $category = Category::find([2]);
-          $video->categories()->syncWithoutDetaching($category);
+          $video->categories()->sync($category);
           }
-      if(in_array('people', $request->get('categories'))){
+      if($request->get('categories') == 'people'){
           $category = Category::find([3]);
-          $video->categories()->syncWithoutDetaching($category);
+          $video->categories()->sync($category);
           }
-      if(in_array('urban', $request->get('categories'))){
+      if($request->get('categories') == 'urban'){
           $category = Category::find([4]);
-          $video->categories()->syncWithoutDetaching($category);
+          $video->categories()->sync($category);
           }
     }
 
     public function show(Video $video)
     {
+        $videos = Video::latest()->paginate(5);
         return view('videos.show',compact('video'));
     }
 
     public function download($file)
     {
-      // dd( $video);
       return response()->download('storage/vids/' .$file);
     }
 
@@ -143,7 +142,6 @@ class VideoController extends Controller
 
         return redirect()->route('videos.index')
                         ->with('success','Video updated successfully');
-
     }
 
 
@@ -172,18 +170,5 @@ class VideoController extends Controller
         return back();
     }
 
-    public function favorited()
-    {
-        return (bool) Favorite::where('user_id', Auth::id())
-                            ->where('video_id', $this->id)
-                            ->first();
-    }
-
-    public function myFavorites()
-    {
-        $myFavorites = Auth::user()->favorites;
-
-        return view('users.my_favorites', compact('myFavorites'));
-    }
 
 }

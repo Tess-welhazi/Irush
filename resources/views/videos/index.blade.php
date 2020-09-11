@@ -28,7 +28,7 @@
 
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('videos.create') }}">Upload new video</a>
+            <a class="btn btn-success" href="{{ route('form') }}">test 2</a>
         </div>
     </div>
 

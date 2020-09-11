@@ -30,4 +30,11 @@ class Video extends Model
                           ->first();
   }
 
+  public function carted()
+  {
+    return (bool) Cart::where('user_id', Auth::id())
+                        ->where('video_id', $this->id)
+                        ->first();
+  }
+
 }

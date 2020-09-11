@@ -1,4 +1,4 @@
-@extends( (Auth::user()->is_admin == 1) ? 'layouts.admin_layout.admin_layout' : 'layouts.app')
+@extends( (Auth::guest() or Auth::user()->is_admin == 0) ? 'layouts.app' : 'layouts.admin_layout.admin_layout')
 
 <!-- identical to user page  -->
 
@@ -12,11 +12,18 @@
         </div>
 
         <div class="pull-right">
+          @auth
           @if (Auth::user()->is_admin == 1)
             <a class="btn btn-primary" href="{{ route('videos.index') }}"> Back</a>
           @else
             <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
           @endif
+
+          @endauth
+
+          @guest
+            <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
+          @endguest
         </div>
     </div>
 </div>
@@ -79,8 +86,27 @@
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-12">
-        <a class="btn btn-info" href="/videos/download/{{$video->videoFile}}">download</a>
+        <a class="btn btn-info" href="route('/videos/download/{{$video->videoFile}}')">download</a>
       </div>
+
+      <form action="{{ route('cart.store') }}" method="POST">
+           {{ csrf_field() }}
+               <input type="hidden" value="{{ $video->id }}" id="id" name="id">
+               <input type="hidden" value="{{ $video->name }}" id="name" name="name">
+               <input type="hidden" value="{{ $video->price }}" id="price" name="price">
+               <input type="hidden" value="{{ $video->imageFile }}" id="img" name="img">
+               @foreach($video->categories as $category)
+                   <input type="hidden" value="{{ $category->name }}" id="category" name="img">
+               @endforeach
+               <input type="hidden" value="1" id="quantity" name="quantity">
+                   <div class="card-footer" style="background-color: white;">
+                       <div class="row">
+                           <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart">
+                           <i class="fa fa-shopping-cart"></i> add to cart
+                           </button>
+                       </div>
+                   </div>
+       </form>
 
   </div>
 
