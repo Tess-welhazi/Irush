@@ -21,7 +21,7 @@
 
         mounted() {
             this.isFavorited = this.isFavorite ? true : false;
-            console.log('mounted');
+            console.log('mounted', this.isFavorited);
         },
 
         computed: {

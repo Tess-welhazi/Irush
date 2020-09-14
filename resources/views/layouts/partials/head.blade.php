@@ -20,7 +20,7 @@
 <!-- my addition -->
 <link href="{{ asset('/css/home.css') }}" rel="stylesheet">
 <link href="{{ asset('/css/profile.css') }}" rel="stylesheet">
-
+<link href="{{ asset('/css/tabs.css') }}" rel="stylesheet">
 <link href="{{ asset('/css/VideoPlayer.css') }}" rel="stylesheet">
 
 <!-- Add icon library -->

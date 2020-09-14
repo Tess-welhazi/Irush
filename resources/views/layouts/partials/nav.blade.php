@@ -34,10 +34,10 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('profile')}}">Profile</a>
+                            <a class="dropdown-item" href="{{ route('user_profile',auth()->user()) }}">My Profile</a>
 
                             <a class="dropdown-item" href="{{ url('my_favorites') }}">My Favorites</a>
-                            
+
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -70,7 +70,7 @@
                     </a>
 <!-- change width here -->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 250px;">
-                        <a class="dropdown-item" href="">Profile</a>
+                        
 
                         @include('layouts.partials.cart-drop')
 

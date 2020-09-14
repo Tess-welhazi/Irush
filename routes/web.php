@@ -13,7 +13,7 @@ Route::any('/search','SearchController@basic_search');
 
 Route::any('/advanced_search', 'SearchController@filter')->name('filter');
 
-Route::get('/profile', 'HomeController@profile')->name('profile');
+// Route::get('/profile', 'HomeController@profile')->name('profile');
 
 Route::resource('videos', 'VideoController')->only(['index', 'show']);
 
@@ -44,6 +44,7 @@ Route::post('unfavorite/{video}', 'VideoController@unFavoriteVideo');
 
 Route::get('my_favorites', 'UsersController@myFavorites')->middleware('auth');
 
+Route::get('users/profile/{user}', 'UsersController@index')->name('user_profile');
 
 // middle ware stuff
 

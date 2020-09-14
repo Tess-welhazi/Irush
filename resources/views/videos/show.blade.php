@@ -86,7 +86,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-12">
-        <a class="btn btn-info" href="route('/videos/download/{{$video->videoFile}}')">download</a>
+        <a class="btn btn-info" href="{{ route('downloadFile', $video->videoFile) }}">download</a>
       </div>
 
       <form action="{{ route('cart.store') }}" method="POST">

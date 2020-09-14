@@ -5,6 +5,8 @@
  */
 import BootstrapVue from 'bootstrap-vue' //Importing
 import Vue from 'vue'
+import {Tabs, Tab} from 'vue-tabs-component'
+
 import {IconsPlugin,DropdownPlugin, TablePlugin } from 'bootstrap-vue'
 
 // Vue.use(DropdownPlugin)
@@ -16,6 +18,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+Vue.component('tabs', Tabs);
+Vue.component('tab', Tab);
 
 Vue.use(BootstrapVue) // Telling Vue to use this in whole application
 // Optionally install the BootstrapVue icon components plugin

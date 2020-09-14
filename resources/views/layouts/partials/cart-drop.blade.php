@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg-6">
                     <b>{{$item->name}}</b>
-                    
+
                 </div>
                 <div class="col-lg-3">
                     <p>${{ \Cart::get($item->id)->getPriceSum() }}</p>
@@ -42,18 +42,9 @@
     </div>
 @else
 <div class="row">
-    <div class="col-lg-3">
-        <img src="/images/cat.jpg"
-             style="width: 50px; height: 50px;"
-        >
-    </div>
+
     <div class="col-lg-6">
-        <b>Boat dog</b>
-        <br><small>Qty: 1</small>
+      <a class="dropdown-item">no items in cart</a>
     </div>
-    <div class="col-lg-3">
-        <p>10 dt</p>
-    </div>
-    <hr>
 </div>
 @endif
