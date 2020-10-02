@@ -4104,7 +4104,7 @@ input[type="button"].btn-block {
   }
 }
 
-.nav {
+/* .nav {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -4121,7 +4121,30 @@ input[type="button"].btn-block {
 
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
+} */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
 }
+
+.nav >a{
+  color: white,
+}
+
+.nav-link {
+  color: white !important;
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  text-decoration: none;
+}
+
 
 .nav-link.disabled {
   color: #6c757d;
@@ -4135,6 +4158,7 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-item {
   margin-bottom: -1px;
+  color: white !important;
 }
 
 .nav-tabs .nav-link {

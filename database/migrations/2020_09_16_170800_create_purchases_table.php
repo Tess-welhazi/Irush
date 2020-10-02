@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreatePurchasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            // $table->id('category_id');
+        Schema::create('purchases', function (Blueprint $table) {
+            // $table->id('purchase_id')
+
             $table->id();
-            $table->string('name');
+            $table->integer('user_id')->unsigned();
+            $table->integer('video_id')->unsigned();
+            $table->integer('download_count')->default('3');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('purchases');
     }
 }

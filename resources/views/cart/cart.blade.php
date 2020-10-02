@@ -88,7 +88,11 @@
                         </ul>
                     </div>
                     <br><a href="/" class="btn btn-dark">Continue Shopping</a>
-                    <a href="/checkout" class="btn btn-success">Proceed To Checkout</a>
+
+                    <form action="{{ route('cart.checkout') }}" method="POST">
+                      {{ csrf_field() }}
+                      <button  class="btn btn-success">Proceed To Checkout</button>
+                    </form>
                 </div>
             @endif
         </div>

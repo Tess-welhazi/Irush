@@ -22,6 +22,19 @@ class CartController extends Controller
        return view('cart.cart')->withTitle('E-COMMERCE STORE | CART')->with(['cartCollection' => $cartCollection]);
    }
 
+   public function checkout(){
+     $cartCollection = \Cart::getContent();
+
+
+     $cartCollection->each(function($item, $key) {
+          Auth::user()->purchases()->attach($item->id);
+      });
+
+      \Cart::clear();
+
+     return back()->with('success_msg', 'successfully purchased video!');
+   }
+
    public function add(request $request){
 
 

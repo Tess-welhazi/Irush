@@ -17,6 +17,13 @@ class UsersController extends Controller
         return view('users.my_favorites', compact('myFavorites'));
     }
 
+    public function myPurchases()
+    {
+        $myPurchases = Auth::user()->purchases;
+
+        return view('users.purchases', compact('myPurchases'));
+    }
+
     public function index(User $user)
     {
       $videos = Video::where('user_id','=', $user->id)->latest()->paginate(6);
@@ -28,5 +35,7 @@ class UsersController extends Controller
       return view('users.profile', compact('myFavorites','user','videos'));
     }
 
-    
+
+
+
 }

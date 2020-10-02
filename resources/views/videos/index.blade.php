@@ -5,7 +5,7 @@
 @section('content')
 <!DOCTYPE html>
 
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="padding-right: 3%; padding-left: 3%">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -28,7 +28,7 @@
 
     <div class="col-lg-12 margin-tb">
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('form') }}">test 2</a>
+            <a class="btn btn-success" href="{{ route('form') }}" style="margin-bottom: 2%;">Upload video</a>
         </div>
     </div>
 
@@ -46,8 +46,8 @@
         <th>ID</th>
         <th>Name</th>
         <th>price</th>
-        <th>filename</th>
         <th width="280px">description</th>
+        <!-- <th>Category</th> -->
     </tr>
 
     @foreach ($videos as $video)
@@ -57,7 +57,8 @@
         <td>{{ $video->name }}</td>
         <td>{{ $video->price }}</td>
         <td>{{ $video->description}}</td>
-        <td>{{ $video->videoFile}}</td>
+        <!-- <td>{{ $video->categories}}</td> -->
+        <!-- <td>{{ $video->videoFile}}</td> -->
         <td>
 
             <form action="{{ route('videos.destroy',$video->id) }}" method="POST">

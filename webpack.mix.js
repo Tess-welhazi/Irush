@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  mix.sourceMaps();
 
  */
-
+// mix.copyDirectory('resources/assets/fonts', 'public/fonts');
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css').js('node_modules/popper.js/dist/popper.js', 'public/js', 'vue/dist/vue.runtime.common.js').sourceMaps();

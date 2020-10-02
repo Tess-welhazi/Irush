@@ -32,7 +32,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-  @include('layouts.partials.nav')
+  @include('layouts.admin_layout.admin_header')
 
   @include('layouts.admin_layout.admin_sidebar')
 

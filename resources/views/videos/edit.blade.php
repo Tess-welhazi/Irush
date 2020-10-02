@@ -3,17 +3,17 @@
 <!-- identical to user page  -->
 
 @section('content')
-<div class="content-wrapper">
+<div class="content-wrapper" style="padding: 3%">
   <div class="row col-md-6">
 
     <div class="col-lg-12 margin-tb">
 
-      <div class="card-header">
-        <h3 class="card-title">Edit video</h3>
-      </div>
+      <!-- <div class="card-header">
+        <h3 class="card-title"></h3>
+      </div> -->
         <div class="pull-right">
 
-            <a class="btn btn-primary" href="{{ route('videos.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('videos.index') }}"> Edit video</a>
         </div>
     </div>
 </div>
@@ -80,20 +80,59 @@
           <!--upload  -->
 
           <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" name="categories[]" value="food" id="1">
-              <label class="form-check-label" for="1">food</label>
-              <br>
-              <input type="checkbox" class="form-check-input" name="categories[]" value="animals" id="2">
-              <label class="form-check-label" for="2">animals</label>
-              <br>
-              <input type="checkbox" class="form-check-input" name="categories[]" value="people" id="3">
-              <label class="form-check-label" for="3">people</label>
-              <br>
-              <input type="checkbox" class="form-check-input" name="categories[]" value="urban" id="4">
-              <label class="form-check-label" for="4">urban</label>
-              <br>
+            <div class="form-group">
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="food" id="1">
+                <label class="custom-control-label" for="1">food</label>
+                <br>
+              </div>
 
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="animals" id="2">
+                <label class="custom-control-label" for="2">animals</label>
+                <br>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="people" id="3">
+                <label class="custom-control-label" for="3">people</label>
+                <br>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="urban" id="4">
+                <label class="custom-control-label" for="4">urban</label>
+                <br>
+              </div>
+            </div>
+
+          </div>
+          <p>license</p>
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="food" id="1">
+                <label class="custom-control-label" for="1">CC BY-ND</label>
+                <br>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="animals" id="2">
+                <label class="custom-control-label" for="2">CC BY</label>
+                <br>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="people" id="3">
+                <label class="custom-control-label" for="3">CC BY-NC</label>
+                <br>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="categories" value="urban" id="4">
+                <label class="custom-control-label" for="4">CC BY-NC-SA</label>
+                <br>
+              </div>
             </div>
 
           </div>

@@ -1,8 +1,11 @@
-<nav class="main-header navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+<nav class="main-header navbar navbar-expand-md navbar-dark irush-color bg-dark shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <!-- <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Irush') }}
-        </a>
+        </a> -->
+
+        <img src="{{asset('images/IRUSH-logo.png')}}" alt="">
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,11 +21,11 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
+                    <li class="nav-item" id="login">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
-                        <li class="nav-item">
+                        <li class="nav-item" id="logout">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
@@ -35,8 +38,9 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('user_profile',auth()->user()) }}">My Profile</a>
-
-                            <a class="dropdown-item" href="{{ url('my_favorites') }}">My Favorites</a>
+                            <a class="dropdown-item" href="{{ route('users.purchases',auth()->user()) }}">My purchases</a>
+                            <!-- correct this route later plz -->
+                            <!-- <a class="dropdown-item" href="{{ url('my_favorites') }}">My Favorites</a> -->
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
@@ -70,7 +74,7 @@
                     </a>
 <!-- change width here -->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 250px;">
-                        
+
 
                         @include('layouts.partials.cart-drop')
 

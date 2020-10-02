@@ -13,6 +13,7 @@ $factory->define(Video::class, function (Faker $faker) {
       'imageFile' => $faker->imageUrl($width = 640, $height = 480),
       'videoFile' => $faker->fileExtension('mp4') . '.mp4',
       'user_id' => $faker->numberBetween(1,7),
+      'license' => $faker->randomElement(['CC BY-ND', 'CC BY', 'CC BY-NC', 'CC BY-NC-SA']),
       'description'=> $faker->realText($maxNbChars = 50, $indexSize = 2),
     ];
 });

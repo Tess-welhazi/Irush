@@ -21,15 +21,18 @@ class VideoSeeder extends Seeder
             'videoFile' => 'NieR_trailer.mp4',
             'imageFile' => 'nier.png',
             'user_id' => '1',
-            'description'=>'Watch the NieR: Automata “Glory to Mankind 119450310” trailer to find out more about androids 2B, 9S and A2 and their battle to reclaim the machine-driven dystopia overrun by powerful machines.'
+            'license' => 'CC BY',
+            'description'=>'Watch the NieR: Automata “Glory to Mankind 119450310” trailer to find out more about androids 2B, 9S and A2 and their battle to reclaim the machine-driven dystopia overrun by powerful machines.',
+
           ],
           [
             'name' => 'Boat dog',
             'price' => '33',
-            'videoFile' => 'boat dog.mp4',
+            'videoFile' => '1597842010.mp4',
             'imageFile' => 'boat_dog.png',
             'user_id' => '1',
-            'description'=>'boat dog'
+            'license' => 'CC BY-NC',
+            'description'=>'a dog on a boat',
 
           ],
           [
@@ -38,7 +41,8 @@ class VideoSeeder extends Seeder
             'videoFile' => 'Hamster.mp4',
             'imageFile' => 'Hamster.png',
             'user_id' => '1',
-            'description'=>'dont think..just feel'
+            'license' => 'CC BY-NC',
+            'description'=>'dont think..just feel',
 
           ],
         ];
@@ -48,7 +52,7 @@ class VideoSeeder extends Seeder
           };
 
 
-        $videos= factory(App\Video::class, 10)->create();
+        $videos= factory(App\Video::class, 1)->create();
         $categories = Category::all();
 
         // $categories = Category::all()->pluck('id')->toArray();
@@ -70,7 +74,7 @@ class VideoSeeder extends Seeder
     $videos->each(function (App\Video $v) use ($categories)
     {
       $v->categories()->attach(
-        $categories->random(rand(1,5))->pluck('id')->toArray()
+        $categories->random(rand(1,3))->pluck('id')->toArray()
       );
     });
 

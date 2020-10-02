@@ -3,7 +3,7 @@
 <!-- identical to user page  -->
 
 @section('content')
-<div class="content-wrapper">
+<div class="content-wrapper" style="padding: 3%">
   <div class="row col-md-6">
 
     <div class="col-lg-12 margin-tb">
@@ -111,8 +111,35 @@
                 <label class="custom-control-label" for="4">urban</label>
                 <br>
               </div>
+            </div>
 
+          </div>
+          <p>license</p>
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="licenses" value="CC BY-ND" id="5">
+                <label class="custom-control-label" for="5">CC BY-ND</label>
+                <br>
+              </div>
 
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="licenses" value="CC BY" id="6">
+                <label class="custom-control-label" for="6">CC BY</label>
+                <br>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="licenses" value="CC BY-NC" id="7">
+                <label class="custom-control-label" for="7">CC BY-NC</label>
+                <br>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="licenses" value="CC BY-NC-SA" id="8">
+                <label class="custom-control-label" for="8">CC BY-NC-SA</label>
+                <br>
+              </div>
             </div>
 
           </div>

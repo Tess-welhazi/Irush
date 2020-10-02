@@ -1,6 +1,8 @@
+
+
 .bg{
   /* The image used */
-background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
+background-image: url('../images/photo cover.png');
 
 /* Half height */
 height: 100vh;
@@ -51,33 +53,6 @@ margin-bottom: 3%;
 
 }
 
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  /* opacity: 1;
-  transition: .5s ease; */
-/* this is a test */
-}
-
-.icon {
-  color: white;
-  font-size: 60px;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-  transition: .5s ease;
-}
-
-
 .card > h4 {
   margin-top: 1rem;
   font-weight: 600;
@@ -103,4 +78,78 @@ margin-bottom: 3%;
 .pagination{
   align-content: center;
   justify-content: center;
+}
+
+.irush-color{
+  background-color: #242424;
+  /* background-color: transparent; */
+}
+
+
+
+#login{
+  background-color: white;
+  border-radius: 4px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-family: 'IBM plex sans';
+  margin-bottom: 0.2rem;
+  margin-top: 0.2rem;
+  margin-right: 1rem;
+}
+
+#logout{
+  background-color: #C8F862;
+  border-radius: 4px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-family: 'IBM plex sans';
+  margin-bottom: 0.2rem;
+  margin-top: 0.2rem;
+  color: black;
+  margin-right: 1rem;
+}
+
+#login > a{
+  color:  #7C9CBF !important ;
+}
+#logout >a{
+  color:  black !important ;
+}
+
+.video-section{
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.sorting-dropdown{
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-content{
+  border: none;
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+/* .dropdown-content:hover {
+  border: none;
+  background-color: transparent;
+  margin-right: 10px;
+} */
+
+.dropdown-content::selection {
+  border: none;
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+
+.sorting-dropdown select {
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right;
 }

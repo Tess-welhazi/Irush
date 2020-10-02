@@ -2,11 +2,15 @@
 
 use Illuminate\Database\Seeder;
 use App\Category;
+use Carbon\Carbon;
 
 class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     * 'slug'=>'nature',
+     *   'slug'=>'urban',
+     *
      *
      * @return void
      */
@@ -15,19 +19,19 @@ class CategorySeeder extends Seeder
       $now = Carbon::now()->toDateTimeString();
       $category = [
         [
-           'name'=>'food', 'slug'=>'food',
+           'name'=>'food', 
         ],
         [
-           'name'=>'animals', 'slug'=>'animals',
+           'name'=>'animals',
         ],
         [
-          'name'=>'people', 'slug'=>'people',
+          'name'=>'people',
         ],
         [
-          'name'=>'urban', 'slug'=>'urban',
+          'name'=>'urban',
         ],
         [
-          'name'=>'nature', 'slug'=>'nature',
+          'name'=>'nature',
         ]
 
       ];

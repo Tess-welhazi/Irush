@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use App\Category;
 use Auth;
 use Storage;
@@ -43,13 +44,14 @@ class VideoController extends Controller
         $video->price = $request->price;
         $video->description = $request->description;
         $video->user_id = $request->user_id;
-
+        $video->license = $request->licenses;
         $video->save();
 
         $this->sortCheckboxes($request,$video );
         // $category = Category::find([3, 4]);
         // $video->categories()->attach($category);
 
+        // return dd($video);
         return redirect()->route('videos.index')
           ->with('success', 'Video updloaded successfully');
     }
@@ -105,6 +107,27 @@ class VideoController extends Controller
           $category = Category::find([4]);
           $video->categories()->sync($category);
           }
+
+          // licenses
+
+          if( $request->get('licenses')== 'CC BY-ND'){
+            $licence = Category::find([1]);
+            $video->categories()->sync($category);
+            }
+
+          if( $request->get('licenses') == 'animals'){
+              $category = Category::find([2]);
+              $video->categories()->sync($category);
+              }
+          if($request->get('licenses') == 'people'){
+              $category = Category::find([3]);
+              $video->categories()->sync($category);
+              }
+          if($request->get('licenses') == 'urban'){
+              $category = Category::find([4]);
+              $video->categories()->sync($category);
+              }
+
     }
 
     public function show(Video $video)
@@ -113,9 +136,25 @@ class VideoController extends Controller
         return view('videos.show',compact('video'));
     }
 
-    public function download($file)
+    public function download($user,$id)
     {
-      return response()->download('storage/vids/' .$file);
+        $id = Video::whereId($id)->first();
+        $filename = $id->videoFile;
+        $filename = public_path('storage/vids/'.$filename);
+
+        // $url = Storage::temporaryUrl(
+        //     $filename, now()->addMinutes(5)
+        // );
+        // $url = URL::signedRoute(
+        //   'download', ['video_id'=>$video->id, 'user_id'=> $video->user_id]
+        // );
+
+       //  $url = URL::temporarySignedRoute(
+       //     'download', now()->addMinutes(30), ['id'=>$video->id]
+       // );
+
+        return response()->download($filename);
+        // return dd($video->id);
     }
 
 
@@ -130,7 +169,7 @@ class VideoController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'file' => 'file|max:3500',
+            'videoFile' => 'file|max:40000',
         ]);
 
         $request['videoFile'] = $this->uploadMedia($request, 'videoFile');
