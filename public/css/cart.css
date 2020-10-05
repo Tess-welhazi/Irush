@@ -15,3 +15,9 @@
 .empty-cart{
   align-self: center;
 }
+
+.form-group > .col-md-10 > label{
+  font-family: "IBM Plex Sans";
+font-style: normal;
+font-weight: 300;
+}

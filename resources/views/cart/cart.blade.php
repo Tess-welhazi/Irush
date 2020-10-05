@@ -1,8 +1,7 @@
-
 @extends('layouts.app')
 
 @section('content')
-    <div class="cart-container" style="margin-top: 20px">
+    <div class="cart-container" style="padding-top: 20px">
 
         @if(session()->has('success_msg'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">

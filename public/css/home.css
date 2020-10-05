@@ -1,4 +1,12 @@
+html{
+  scroll-behavior: smooth;
+}
 
+.navbar{
+  position: fixed;
+  width: 100%;
+  z-index: 6;
+}
 
 .bg{
   /* The image used */
@@ -85,6 +93,10 @@ margin-bottom: 3%;
   /* background-color: transparent; */
 }
 
+.font-ibm{
+  font-family: 'IBM plex sans';
+  margin-bottom: 0.2rem;
+}
 
 
 #login{

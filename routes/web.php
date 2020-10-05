@@ -34,12 +34,10 @@ Route::post('/checkout', 'CartController@checkout')->name('cart.checkout');
 Route::get('vueAdd/{video}', 'CartController@VueAdd');
 Route::post('vueRemove/{video}', 'CartController@VueRemove');
 
-
 //---------------------  the favourites  ---------------------------------
 
 Route::get('favorite/{video}', 'VideoController@favoriteVideo');
 Route::post('unfavorite/{video}', 'VideoController@unFavoriteVideo');
-
 
 Route::get('users/profile/{user}', 'UsersController@index')->name('user_profile');
 
@@ -69,3 +67,7 @@ Route::group(["middleware" => "App\Http\Middleware\IsAdmin"], function()
 Route::get('/test', function(){
   return view('test_show');
 });
+
+//
+Route::get('/contribute', 'UsersController@contribute')->name('contribute');
+Route::get('/apply', 'UsersController@apply')->name('apply');

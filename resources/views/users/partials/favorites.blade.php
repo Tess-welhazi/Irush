@@ -15,7 +15,7 @@
                                   width: 100%;">
 
               <div class="play-button">
-                <a href="{{ route('videos.show',$myFavorite->id) }}" class="icon" title="Play circle">
+                <a href="{{ route('videos.show',$myFavorite->id) }}" class="icon" title="Play circle" style="left: 0 !important;">
                   <i class="fa fa-play-circle"></i>
                 </a>
               </div>

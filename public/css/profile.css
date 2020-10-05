@@ -5,6 +5,7 @@
   width: 100%;
   background-size: cover;
   min-height: 250px;
+  padding-top: 3rem;
 
 }
 .profile-userpic img {
@@ -76,4 +77,18 @@ p{
   text-decoration: none;
   border-bottom: 3px solid #227dc7;
   color: #227dc7;
+}
+
+.contributer-pic{
+  object-fit: cover;
+  border-radius: 50%;
+  height: 10rem;
+width: 10rem;
+}
+
+.cont-card{
+  /* height: 15rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

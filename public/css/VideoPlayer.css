@@ -25,7 +25,7 @@ height: 20%;
 }
 
 .card2{
-
+  border-radius: 8px;
   padding: 2rem 1rem;
   display: flex;
   align-items: flex-end;
@@ -38,7 +38,7 @@ height: 20%;
 }
 
 .card2:hover{
-  transform: translateY(20px);
+  transform: translateY(10px);
 }
 
 .card2::before{
@@ -66,6 +66,8 @@ height: 20%;
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 10px;
+  filter: brightness(65%);
 }
 
 .card2 > h4 > a {
@@ -84,7 +86,7 @@ height: 20%;
   position: relative;
   z-index: 3;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition: 0.5s all;
   /* not in tuto  */
   width: 100%;
@@ -133,18 +135,22 @@ height: 20%;
 /* this is a test */
 }
 
-/* width: 20%;justify-content: space-between;display: flex; */
-
 .title{
-  color: #212529;
+  /* color: #212529; */
+  color: white;
 }
 
 .title:hover{
   text-decoration: none;
 }
 
+.fa-heart-o, .fa-heart, .fa-shopping-cart, .fa-cart-plus{
+  color: white;
+}
+
+
 .video-page{
-margin: 6rem;
+padding: 6rem;
 }
 
 .video-details{

@@ -16,12 +16,25 @@
 
         <div id="price">
           <h5 class="label">Price range</h5>
-          <div data-role="rangeslider">
+          <!-- <div data-role="rangeslider">
               <label for="range-1a">Rangeslider:</label>
               <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40" data-popup-enabled="true" data-show-value="true">
               <label for="range-1b">Rangeslider:</label>
               <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80" data-popup-enabled="true" data-show-value="true">
+          </div> -->
+
+          <div class="input-group d-flex flex-column">
+            <div class="col-7">
+              <label>From</label>
+              <input type="number" class="form-control" id="min_price" name="min_price" placeholder="{{ $min ?? '' }}">
+            </div>
+            <div class="col-7">
+              <label>To</label>
+              <input type="number" class="form-control" id="max_price" name="max_price" placeholder="{{$max ?? ''}}">
+            </div>
           </div>
+
+
         </div>
         <!-- categories row -->
         <div id="category">
@@ -53,7 +66,7 @@
 
         </div>
 
-        <div id="licence">
+        <div id="license">
             <h5 class="label">Licence</h5>
 
             <div class="custom-control custom-radio">
@@ -103,7 +116,7 @@
 
           @foreach($details->chunk(3) as $chunk)
 
-          <div class="card-deck row-fluid">
+          <div class="card-deck row-fluid" style="margin-bottom: 2rem">
               @foreach($chunk as $video)
 
                               <div class="card2 col-md-4" style="width: 20rem;">

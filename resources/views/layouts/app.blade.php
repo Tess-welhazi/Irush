@@ -18,4 +18,7 @@
     </div>
       @yield('script')
 </body>
+
+    @include('layouts.partials.footer')
+
 </html>

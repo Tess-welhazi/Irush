@@ -35,7 +35,16 @@ class UsersController extends Controller
       return view('users.profile', compact('myFavorites','user','videos'));
     }
 
+    public function contribute()
+    {
 
+      return view('contribute');
+    }
+
+    public function apply()
+    {
+      return view('apply');
+    }
 
 
 }

@@ -24,7 +24,6 @@
                     <label>To</label>
                     <input type="number" class="form-control" id="max_price" name="max_price" placeholder="{{$max ?? ''}}">
                   </div>
-
                 </div>
 
                 <div class="col-sm-12">

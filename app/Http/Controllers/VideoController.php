@@ -31,7 +31,7 @@ class VideoController extends Controller
         $request->validate([
           'name' => 'required',
           'price' => 'required',
-          'videoFile' => 'file|max:30000',
+          'videoFile' => 'file|max:40000',
           'categories' =>'required',
         ]);
 
@@ -135,7 +135,10 @@ class VideoController extends Controller
     {
         $videos = Video::latest()->paginate(5);
         $user = User::where('id','=', $video->user_id)->first();
-        return view('videos.show',compact('video','user'));
+
+        $user_uploads = Video::where('user_id','=', $user->id)->latest()->paginate(6);
+        // return dd($user_upload);
+        return view('videos.show',compact('video','user', 'user_uploads'));
     }
 
     public function download($user,$id)

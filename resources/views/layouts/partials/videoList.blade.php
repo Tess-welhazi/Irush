@@ -1,8 +1,8 @@
-<div class="" >
+<div class="" style="padding-bottom: 2rem;">
 
 
   @foreach($videos->chunk(3) as $chunk)
-      <div class="card-deck row-fluid" style="margin-bottom: 2rem">
+      <div class="card-deck row-fluid" style="margin-bottom: 5rem">
           @foreach($chunk as $video)
 
                 <div class="card2 col-md-4">
@@ -15,7 +15,7 @@
                                         width: 100%;">
 
                     <div class="play-button">
-                      <a href="{{ route('videos.show',$video->id) }}" class="icon" title="Play circle">
+                      <a href="{{ route('videos.show',$video->id) }}" class="icon" title="Play circle" >
                         <i class="fa fa-play-circle"></i>
                       </a>
                     </div>
@@ -23,7 +23,7 @@
                     <div class="info">
 
                       <a class="title" href="{{ route('videos.show',$video->id) }}">
-                        <h4>{{ $video->name }}</h4>
+                        <h5>{{ $video->name }}</h5>
                       </a>
 
                           <form action="{{ route('cart.store') }}" method="POST">

@@ -38,13 +38,13 @@ class SearchController extends Controller
 
           if ($min_price) {
 
-              $video->where('price','>', $min_price);
+              $video->where('price','>=', $min_price);
           }
           $max_price=Request::input('max_price');
 
           if ($max_price) {
 
-              $video->where('price','<',$max_price);
+              $video->where('price','<=',$max_price);
           }
             // $request->has('category')
 
@@ -53,7 +53,7 @@ class SearchController extends Controller
             }
 
             if (Request::input('licence')) {
-                  $video->where('licence','=', Request::input('licence'));
+                  $video->where('license','=', Request::input('license'));
               }
 
             // dd(Request::input('category'));

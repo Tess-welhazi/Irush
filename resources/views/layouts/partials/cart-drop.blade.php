@@ -30,13 +30,16 @@
 
 
     <br>
+
     <div class="row padding-2" style="padding-right: 2rem;padding-left: 2rem;">
         <a class="btn green btn-sm btn-block" href="{{ route('cart.index') }}">
             CART <i class="fa fa-arrow-right"></i>
         </a>
+        @auth
         <a class="btn green btn-sm btn-block" href="">
             CHECKOUT <i class="fa fa-arrow-right"></i>
         </a>
+        @endauth
     </div>
 @else
 <div class="row">
