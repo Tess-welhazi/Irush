@@ -1,0 +1,70 @@
+.login-wrapper{
+  flex-direction: row;
+  display: flex;
+  height: 100%;
+}
+
+.side-pic{
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  /* height: 800px; */
+  height: 100%;
+}
+
+.login-column{
+  flex: 4;
+  background-color: white;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+.pic-column{
+  flex: 7;
+}
+
+.big-logo{
+  padding: 5rem;
+  padding-bottom: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-inputs{
+  border: 1px solid #DBE2EA !important;
+  color: #7C9CBF !important;
+  box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+  border-radius: 6px;
+
+  /* fonts */
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+::placeholder{
+  color: #7C9CBF !important;
+}
+
+.Forgot-password{
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
+  text-decoration-line: underline;
+
+  color: #0880AE;
+}
+
+.widest{
+  width: 100%;
+}
+
+.dark-blue-text{
+  color: #0880AE;
+}

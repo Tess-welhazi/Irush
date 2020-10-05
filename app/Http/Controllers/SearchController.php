@@ -17,7 +17,8 @@ class SearchController extends Controller
 
         if(count($video) > 0)
             return view('search')->withDetails($video)->withQuery ( $q );
-        else return view ('search')->withMessage('No Details found. Try to search again !');
+
+        else return view ('search')->withMessage('No Details found. Try to search again !')->withQuery ( $q );
 
       }
 
@@ -25,8 +26,6 @@ class SearchController extends Controller
         {
           $q = Request::input  ( 'q' );
 
-          // $video_alt = Video::where('name','LIKE','%'.$q.'%')
-          //   ->orWhere('description','LIKE','%'.$q.'%');
 
           $video_alt = Video::where(function($request) use($q){
               $request->orWhere('name','LIKE','%'.$q.'%')
@@ -52,6 +51,10 @@ class SearchController extends Controller
           if (Request::input('category')) {
                 $video->where('category','=', Request::input('category'));
             }
+
+            if (Request::input('licence')) {
+                  $video->where('licence','=', Request::input('licence'));
+              }
 
             // dd(Request::input('category'));
             // $video = Video::paginate(15);

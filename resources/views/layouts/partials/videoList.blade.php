@@ -43,12 +43,12 @@
                                                         :video={{ $video->id }}
                                                         :favorited={{ $video->favorited() ? 'true' : 'false' }}
                                                     ></favorite>
-
+                                            @endif
                                                     <cart
                                                        :video={{ $video->id }}
                                                        :carted={{ $video->carted() ? 'true' : 'false' }}>
                                                     </cart>
-                                            @endif
+
 
                            </form>
                     </div>
@@ -66,4 +66,7 @@
         {{ $videos->links() }}
       </div>
 
+      <div class="more-from">
+
+      </div>
 </div>

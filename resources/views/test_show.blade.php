@@ -1,132 +1,65 @@
-@extends( (Auth::guest() or Auth::user()->is_admin == 0) ? 'layouts.app' : 'layouts.admin_layout.admin_layout')
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset="utf-8">
+    <title>test</title>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-<!-- identical to user page  -->
+    <link href="{{ asset('/css/range-slider.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/home.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/profile.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/cart.css') }}" rel="stylesheet">
+        <link href="{{ asset('/css/search.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{{url('plugins/fontawesome-free/css/all.min.css')}}">
 
-@section('content')
-<div class="content-wrapper container">
-  <!-- <div class="row ">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript">
+      $('input').popup();
+      </script>
+      <!-- test -->
+      <link href="{{ asset('/css/jquery.mobile-1.4.5.css') }}" rel="stylesheet">
+      <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
 
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2> Show Video</h2>
-        </div>
+      <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script>
+  </head>
+  <body>
+    @include('layouts.partials.nav')
 
-        <div class="pull-right">
-          @auth
-          @if (Auth::user()->is_admin == 1)
-            <a class="btn btn-primary" href="{{ route('videos.index') }}"> Back</a>
-          @else
-            <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
-          @endif
+    <div id="app">
+      <div class="range-slider">
+        <form>
+          <div data-role="rangeslider">
+              <label for="range-1a">Rangeslider:</label>
+              <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40" data-popup-enabled="true" data-show-value="true">
+              <label for="range-1b">Rangeslider:</label>
+              <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80" data-popup-enabled="true" data-show-value="true">
+          </div>
+        </form>
 
-          @endauth
-
-          @guest
-            <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
-          @endguest
-        </div>
+      </div>
     </div>
-</div> -->
 
-<div class="col-lg-12 margin-tb">
+    <div class="col-lg-5 flex-row align-items-center justify-content-space-between cart-side">
 
-        <div class="">
+        <div class="card col-lg-6 d-flex flex-row " style="border: none">
+                <p style="color: black"> <b>Total: </b> </p>
+                <p style="color: black">${{ \Cart::getTotal() }}</p>
 
-            <!-- <img style="height: 600px" src="{{ asset('storage/vids/' . $video->videoFile) }}" alt=""> -->
-            <!-- col-xs-12 col-sm-12 col-md-12 -->
-            <!-- videojs -->
-            <video
-              id="my-video"
-              class="video-js vjs-default-skin .vjs-big-play-button video"
-              controls
-              preload="auto"
-              width="auto"
-              height="100%"
-              poster="{{ $video->imageFile }}"
-              data-setup="{}"
-            >
-              <source src="{{asset('storage/vids/' . $video->videoFile)}}" type="video/mp4" />
-                <p>$video->videoFile</p>
-              <p class="vjs-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a
-                web browser that
-                <a href="https://videojs.com/html5-video-support/" target="_blank"
-                  >supports HTML5 video</a
-                >
-              </p>
-            </video>
+        </div>
 
-          </div>
+        <a href="/" class="btn btn-info blue col-lg-6">Continue Shopping</a>
 
-          <div class="col-xs-12 col-sm-12 col-md-12">
-            @foreach($video->categories as $category)
-            <li>{{ $category->name }}</li>
-            @endforeach
-          </div>
-
-  <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-          <div class="form-group">
-              <strong>Name:</strong>
-              {{ $video->name }}
-          </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-12">
-          <div class="form-group">
-              <strong>description:</strong>
-              {{ $video->description }}
-          </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-12">
-          <div class="form-group">
-              <strong>price:</strong>
-              {{ $video->price }}
-          </div>
-      </div>
-
-      <!-- <div class="col-xs-12 col-sm-12 col-md-12">
-        <a class="btn btn-info" href="{{  URL::temporarySignedRoute(
-              'download', now()->addMinutes(1), ['id'=>$video->id] ) }}">
-       download</a>
-
-      </div> -->
-
-      <h4>  {{ $video->user_id }}  </h4>
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <a class="btn btn-info" href="{{  URL::signedRoute(
-          'download', ['id'=>$video->id ]
-        ) }}">
-       download</a>
-
-      </div>
+        <form action="{{ route('cart.checkout') }}" method="POST">
+          {{ csrf_field() }}
+          <button  class="btn  green col-lg-6">Proceed To Checkout</button>
+        </form>
+    </div>
 
 
-      <form action="{{ route('cart.store') }}" method="POST">
-           {{ csrf_field() }}
-               <input type="hidden" value="{{ $video->id }}" id="id" name="id">
-               <input type="hidden" value="{{ $video->name }}" id="name" name="name">
-               <input type="hidden" value="{{ $video->price }}" id="price" name="price">
-               <input type="hidden" value="{{ $video->imageFile }}" id="img" name="img">
-               @foreach($video->categories as $category)
-                   <input type="hidden" value="{{ $category->name }}" id="category" name="img">
-               @endforeach
-               <input type="hidden" value="1" id="quantity" name="quantity">
-                   <div class="card-footer" style="background-color: white;">
-                       <div class="row">
-                           <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart">
-                           <i class="fa fa-shopping-cart"></i> add to cart
-                           </button>
-                       </div>
-                   </div>
-       </form>
 
-  </div>
-
-</div>
-
-</div>
-
-
-@endsection
+  </body>
+</html>

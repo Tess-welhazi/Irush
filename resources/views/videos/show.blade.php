@@ -48,7 +48,11 @@
             <div style="flex-direction: row; display: flex; justify-content: space-between;
             align-items: center;">
               <img src="{{asset('images/admin_img/user2-160x160.jpg')}}" class="profile-circle" style="object-fit: cover">
-              <h6> <strong>John Doe</strong></h6>
+              <a href="{{ route('user_profile',$user->id) }}" class="title">
+                <h6> <strong>{{$user->name}}</strong></h6>
+
+              </a>
+
             </div>
 
 
@@ -88,7 +92,10 @@
     </div>
   </div>
 
+  <div class="" style="margin-top: 2rem">
+    <h3>More from {{$user->name}}</h3>
 
+  </div>
 
 </div>
 @endsection

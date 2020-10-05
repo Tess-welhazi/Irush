@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Video;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\Category;
@@ -30,7 +31,7 @@ class VideoController extends Controller
         $request->validate([
           'name' => 'required',
           'price' => 'required',
-          'videoFile' => 'file|max:3000',
+          'videoFile' => 'file|max:30000',
           'categories' =>'required',
         ]);
 
@@ -133,7 +134,8 @@ class VideoController extends Controller
     public function show(Video $video)
     {
         $videos = Video::latest()->paginate(5);
-        return view('videos.show',compact('video'));
+        $user = User::where('id','=', $video->user_id)->first();
+        return view('videos.show',compact('video','user'));
     }
 
     public function download($user,$id)

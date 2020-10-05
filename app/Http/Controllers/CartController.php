@@ -25,7 +25,6 @@ class CartController extends Controller
    public function checkout(){
      $cartCollection = \Cart::getContent();
 
-
      $cartCollection->each(function($item, $key) {
           Auth::user()->purchases()->attach($item->id);
       });

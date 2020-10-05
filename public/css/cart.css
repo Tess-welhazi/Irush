@@ -1,0 +1,17 @@
+.cart-container{
+  padding: 5%;
+
+}
+
+.cart-side{
+  padding-left: 5rem;
+
+}
+
+.cart-side > .blue, .green {
+
+}
+
+.empty-cart{
+  align-self: center;
+}

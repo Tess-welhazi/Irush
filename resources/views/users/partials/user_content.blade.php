@@ -5,58 +5,55 @@
       <div class="card-deck row-fluid">
           @foreach($chunk as $video)
 
-          <div class="card col-md-4" style="width: 20rem;">
-            <picture>
-              <a href="#" class="icon" title="Play circle">
-                <i class="fa fa-play-circle"></i>
-              </a>
-             <source media="" srcset="{{$video->imageFile}}">
-             <source media="(min-width: 465px)" srcset="img_white_flower.jpg">
-             <img src="{{asset('storage/img/' . $video->imageFile)}}" width="320" height="240">
-            </picture>
+          <div class="card2 col-md-4">
 
-            <h4>{{ $video->name }}</h4>
-            <a class="btn btn-info" href="{{ route('videos.show',$video->id) }}">Show</a>
+            <!-- <img src="{{asset('images/example.svg')}}" style=""> -->
 
-            <form action="{{ route('cart.store') }}" method="POST">
-                 {{ csrf_field() }}
-                     <input type="hidden" value="{{ $video->id }}" id="id" name="id">
-                     <input type="hidden" value="{{ $video->name }}" id="name" name="name">
-                     <input type="hidden" value="{{ $video->price }}" id="price" name="price">
-                     <input type="hidden" value="{{ $video->imageFile }}" id="img" name="img">
-                     @foreach($video->categories as $category)
-                         <input type="hidden" value="{{ $category->name }}" id="category" name="img">
-                     @endforeach
-                     <input type="hidden" value="1" id="quantity" name="quantity">
-                         <div class="card-footer" style="background-color: white;">
-                             <div class="row">
-                                 <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart">
-                                 <i class="fa fa-shopping-cart"></i> add to cart
-                                 </button>
-                             </div>
+            <img src="{{asset('storage/img/'. $video->imageFile)}}" style="">
+            <div class="" style="display: flex;
+                                  flex-direction: column;
+                                  width: 100%;">
 
-                             @if (Auth::check())
-                                      <favorite
-                                          :video={{ $video->id }}
-                                          :favorited={{ $video->favorited() ? 'true' : 'false' }}
-                                      ></favorite>
-                              @endif
+              <div class="play-button">
+                <a href="{{ route('videos.show',$video->id) }}" class="icon" title="Play circle">
+                  <i class="fa fa-play-circle"></i>
+                </a>
+              </div>
 
-                         </div>
-             </form>
+              <div class="info">
 
-             @if (Auth::check())
-             <favorite
-                 :video={{ $video->id }}
-                 :favorited={{ $video->favorited() ? 'true' : 'false' }}
-             ></favorite>
+                <a class="title" href="{{ route('videos.show',$video->id) }}">
+                  <h4>{{ $video->name }}</h4>
+                </a>
 
-              <cart
-                 :video={{ $video->id }}
-                 :carted={{ $video->carted() ? 'true' : 'false' }}>
+                    <form action="{{ route('cart.store') }}" method="POST">
+                         {{ csrf_field() }}
+                             <input type="hidden" value="{{ $video->id }}" id="id" name="id">
+                             <input type="hidden" value="{{ $video->name }}" id="name" name="name">
+                             <input type="hidden" value="{{ $video->price }}" id="price" name="price">
+                             <input type="hidden" value="{{ $video->imageFile }}" id="img" name="img">
+                             @foreach($video->categories as $category)
+                                 <input type="hidden" value="{{ $category->name }}" id="category" name="img">
+                             @endforeach
+                             <input type="hidden" value="1" id="quantity" name="quantity">
 
-              </cart>
-             @endif
+
+                                     @if (Auth::check())
+                                              <favorite
+                                                  :video={{ $video->id }}
+                                                  :favorited={{ $video->favorited() ? 'true' : 'false' }}
+                                              ></favorite>
+
+                                              <cart
+                                                 :video={{ $video->id }}
+                                                 :carted={{ $video->carted() ? 'true' : 'false' }}>
+                                              </cart>
+                                      @endif
+
+                     </form>
+              </div>
+
+            </div>
 
           </div>
 

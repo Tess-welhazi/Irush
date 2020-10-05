@@ -22,9 +22,16 @@
 <link href="{{ asset('/css/profile.css') }}" rel="stylesheet">
 <link href="{{ asset('/css/tabs.css') }}" rel="stylesheet">
 <link href="{{ asset('/css/VideoPlayer.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/auths.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/search.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/cart.css') }}" rel="stylesheet">
 
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- range slider -->
+
+<!-- <link href="{{ asset('/css/jquery.mobile-1.4.5.css') }}" rel="stylesheet"> -->
+
 
 <!-- video js -->
 <link href="https://vjs.zencdn.net/7.7.5/video-js.css" rel="stylesheet" />

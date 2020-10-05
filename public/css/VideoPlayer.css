@@ -1,21 +1,12 @@
-/* .video{
-  width: 80%  ;
-  height: 550px !important;
-}
+
 
 .vjs-default-skin .vjs-big-play-button {
-left: 40%;
-top: 40%;
+left: 45% !important;
+top: 50% !important;
 width: 20%;
 height: 20%;
 }
 
-@media only screen and (max-width:599px) {
-	.vjs-default-skin .vjs-big-play-button {left:25%;top:25%;width:50%;height:50%;}
-}
-@media only screen and (min-width:600px) and (max-width:768px) {
-	.vjs-default-skin .vjs-big-play-button {left:25%;top:25%;width:50%;height:50%;font-size:5em;}
-} */
 
 @media (min-width: 576px){
   .card-deck {
@@ -177,7 +168,6 @@ margin: 6rem;
 
 .blue{
   background-color: #0880AE;
-
 }
 
 .profile-circle{
@@ -189,9 +179,19 @@ margin: 6rem;
 }
 
 .profile-btn{
-  border-color: #0880AE;
+  border: 1px solid #0880AE;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 2px rgba(44, 39, 56, 0.08), 0px 2px 4px rgba(44, 39, 56, 0.08);
+  border-radius: 3px;
    /* //nice hue of blue */
   color: #0880AE;
+
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
 }
 
 .profile-segment{
@@ -199,7 +199,6 @@ margin: 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 
   padding: 0.8rem;
   flex-direction: row;
@@ -212,4 +211,16 @@ margin: 6rem;
 .video-wrapper{
   display: flex;
   background-color: #F7F9F9;
+}
+
+.more-from{
+  background-color: white;
+
+}
+
+/* purchases */
+
+.purchase-container{
+  margin-bottom: 2rem;
+  padding: 1rem;
 }
