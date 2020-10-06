@@ -15,7 +15,7 @@ class VideoController extends Controller
 
     public function index()
     {
-        $videos = Video::latest()->paginate(5);
+        $videos = Video::latest()->paginate(9);
         return view('videos.index',compact('videos'))
           ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -133,7 +133,7 @@ class VideoController extends Controller
 
     public function show(Video $video)
     {
-        $videos = Video::latest()->paginate(5);
+        $videos = Video::latest()->paginate(9);
         $user = User::where('id','=', $video->user_id)->first();
 
         $user_uploads = Video::where('user_id','=', $user->id)->latest()->paginate(6);

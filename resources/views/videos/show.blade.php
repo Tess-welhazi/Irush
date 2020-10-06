@@ -48,6 +48,9 @@
         <strong>licence: </strong>
 
         {{ $video->license }}
+        @foreach($video->categories as $category)
+            <p><strong>category: </strong> {{ $category->name }}</p>
+        @endforeach
       </p>
 
       <div class="row profile-segment">
@@ -55,7 +58,7 @@
             align-items: center;">
               <img src="{{asset('images/admin_img/user2-160x160.jpg')}}" class="profile-circle" style="object-fit: cover">
               <a href="{{ route('user_profile',$user->id) }}" class="title">
-                <h6> <strong>{{$user->name}}</strong></h6>
+                <h6 style="color: black"> <strong>{{$user->name}}</strong></h6>
 
               </a>
 
@@ -68,9 +71,12 @@
 
       <br>
       <div class="row">
-        <a class="btn btn-info blue" href="{{  URL::signedRoute(
+        <!-- <a class="btn btn-info blue"  href="{{  URL::signedRoute(
           'download', ['id'=>$video->id ]
-        ) }}"> Download
+        ) }}"  > Download
+        </a> -->
+
+        <a class="btn btn-info blue"  href=""  > Download
         </a>
       </div>
 
@@ -88,7 +94,7 @@
                  @endforeach
                  <input type="hidden" value="1" id="quantity" name="quantity">
 
-                             <button class="btn green" class="tooltip-test" title="add to cart">
+                             <button class="btn green" class="tooltip-test" title="add to cart" style="color: black">
                              <i class="fa fa-shopping-cart"></i> add to cart
                              </button>
 
@@ -105,7 +111,7 @@
 
 
       @foreach($user_uploads->chunk(3) as $chunk)
-          <div class="card-deck row-fluid">
+          <div class="card-deck row-fluid" style="margin-bottom: 2rem;">
               @foreach($chunk as $user_upload)
 
               <div class="card2 col-md-4">

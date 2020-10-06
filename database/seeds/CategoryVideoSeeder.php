@@ -13,19 +13,19 @@ class CategoryVideoSeeder extends Seeder
      */
     public function run()
     {
-      $now = Carbon::now()->toDateTimeString();
+      // $now = Carbon::now()->toDateTimeString();
+      //
+      // $videos = Video::all();
+      // $categories = Category::all();
+      //
+      // $videos->each(function (App\Video $v) use ($categories)
+      // {
+      //   $v->categories()->attach(
+      //     $categories->random(rand(1,5))->pluck('id')->toArray()
+      //   );
+      //
+      //
+      // });
 
-      $videos = Video::all();
-      $categories = Category::all();
-
-      $videos->each(function (App\Video $v) use ($categories)
-      {
-        $v->categories()->attach(
-          $categories->random(rand(1,5))->pluck('id')->toArray()
-        );
-
-
-      });
-      
     }
 }

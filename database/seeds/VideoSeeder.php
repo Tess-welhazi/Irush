@@ -12,8 +12,8 @@ class VideoSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
+     public function run()
+     {
         $video = [
           [
             'name' => 'NiER Automata trailer',
@@ -52,9 +52,11 @@ class VideoSeeder extends Seeder
           };
 
 
-        $videos= factory(App\Video::class, 1)->create();
-        $categories = Category::all();
+        $videos= factory(App\Video::class, 15)->create();
 
+        $categories = Category::all();
+        // $videos = Video::all();
+// trash here
         // $categories = Category::all()->pluck('id')->toArray();
         // $random = $categories->random(1);
         // $videos->each(function (App\Video $v) use ($categories) {
@@ -70,15 +72,19 @@ class VideoSeeder extends Seeder
     //         ['grams' => 5]
     //     );
     // });
+    // $categories->random(rand(1,5))->pluck('id')->toArray()
 
-    $videos->each(function (App\Video $v) use ($categories)
-    {
-      $v->categories()->attach(
-        $categories->random(rand(1,3))->pluck('id')->toArray()
-      );
-    });
+    // $videos->each(function (App\Video $v) use ($categories)
+    // {
+    //   $v->categories()->sync(
+    //     $categories->random(rand(1,5))->pluck('id')->toArray()
+    //   );
+    // });
 
 
+    foreach ($videos as $video){
+      $video->categories()->sync(rand(1,5));
+    }
 
     }
 }

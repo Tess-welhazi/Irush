@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="profile_head col-lg-12 text-center">
+<div class="profile_head col-lg-12 text-center" style="padding-bottom: 2rem">
   <br>
   <div name="circular" style="" class="rounded-circle img-thumbnail rounded mx-auto d-block img-responsive">
 

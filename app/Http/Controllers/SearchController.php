@@ -46,20 +46,19 @@ class SearchController extends Controller
 
               $video->where('price','<=',$max_price);
           }
-            // $request->has('category')
 
-          if (Request::input('category')) {
-                $video->where('category','=', Request::input('category'));
+            $category = $video->categories;
+            //
+          if (Request::input('categories')) {
+                $video->where('category','=',Request::input('categories'));
             }
 
-            if (Request::input('licence')) {
-                  $video->where('license','=', Request::input('license'));
+            if (Request::input('licenses')) {
+                  $video->where('license','=', Request::input('licenses'));
               }
+              // $faza = $video->categories->id;
+            // return dd($video->category);
 
-            // dd(Request::input('category'));
-            // $video = Video::paginate(15);
-            // $video = $video->get();
-            // return $video->get();
             $video = $video->paginate(15);
             return view('search')->withDetails($video)->withQuery ( $q )
                                                       ->withMin($min_price)

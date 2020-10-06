@@ -2,7 +2,7 @@
 
   <br>
   @foreach($videos->chunk(3) as $chunk)
-      <div class="card-deck row-fluid">
+      <div class="card-deck row-fluid" style="margin-bottom: 2rem">
           @foreach($chunk as $video)
 
           <div class="card2 col-md-4">

@@ -9,7 +9,7 @@ Auth::routes();
 
 // Route::post('/search', 'SearchController@filter');
 
-Route::any('/search','SearchController@basic_search');
+Route::any('/search','SearchController@basic_search')->name('search');
 
 Route::any('/advanced_search', 'SearchController@filter')->name('filter');
 

@@ -17,7 +17,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
 
-              <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Explore</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('search') }}">Explore</a></li>
 
               <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
 
